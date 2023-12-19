@@ -10,6 +10,7 @@
 #include "GameFramework/FloatingPawnMovement.h"
 #include "MyActorComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Rocket.h"
 
 // Sets default values
 AMyPawn::AMyPawn()
@@ -98,7 +99,7 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AMyPawn::Fire()
 {
 	GetWorld()->SpawnActor<AActor>(
-		this->GetClass(),
+		ARocket::StaticClass(),
 		Arrow->K2_GetComponentLocation(),
 		Arrow->K2_GetComponentRotation()
 	);
